@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 //import fs from "fs";
 
 export default defineConfig({
+  base: '/communicator-teams-app/',
   plugins: [react()],
   define: {
     'process.env.TEAMS_APP_SKIP_PREREQUISITE_CHECK': 'true',
