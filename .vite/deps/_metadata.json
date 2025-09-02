@@ -1,0 +1,40 @@
+{
+  "hash": "d73d4bb4",
+  "configHash": "16671dce",
+  "lockfileHash": "72d0c955",
+  "browserHash": "0559c915",
+  "optimized": {
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "a242259c",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "c3c96afd",
+      "needsInterop": true
+    },
+    "@fluentui/react-components": {
+      "src": "../../node_modules/@fluentui/react-components/lib/index.js",
+      "file": "@fluentui_react-components.js",
+      "fileHash": "511ff968",
+      "needsInterop": false
+    },
+    "react-router-dom": {
+      "src": "../../node_modules/react-router-dom/dist/index.js",
+      "file": "react-router-dom.js",
+      "fileHash": "8c2e6b8d",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-HR2MVNDZ": {
+      "file": "chunk-HR2MVNDZ.js"
+    },
+    "chunk-JRE55LYH": {
+      "file": "chunk-JRE55LYH.js"
+    }
+  }
+}

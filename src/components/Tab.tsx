@@ -3,7 +3,7 @@ import { Settings, ArrowRight, CheckCircle, AlertCircle, RefreshCw } from 'lucid
 
 const Tab = () => {
   const [config, setConfig] = useState({
-    baseUrl: 'https://6e69cba8ce61.ngrok-free.app',
+    baseUrl: 'https://d0faed72b9cb.ngrok-free.app',
     userId: '',
     displayName: ''
   });
