@@ -3,7 +3,7 @@ import { Settings, ArrowRight, CheckCircle, AlertCircle, RefreshCw } from 'lucid
 
 const Tab = () => {
   const [config, setConfig] = useState({
-    baseUrl: 'https://d0faed72b9cb.ngrok-free.app',
+    baseUrl: 'https://1159c43cc98b.ngrok-free.app',
     userId: '',
     displayName: ''
   });
@@ -113,7 +113,7 @@ const Tab = () => {
 
   const getChatUrl = () => {
     const cleanUrl = config.baseUrl.replace(/\/$/, '');
-    return `${cleanUrl}/Teams?userId=${config.userId}&displayName=${encodeURIComponent(config.displayName)}&apiUrl=${encodeURIComponent(cleanUrl)}`;
+    return `${cleanUrl}/Teams?userId=${config.userId}&displayName=${encodeURIComponent(config.displayName)}&apiUrl=${encodeURIComponent(cleanUrl)}&ngrok-skip-browser-warning=true`;
   };
 
   if (showConfig) {
@@ -206,15 +206,35 @@ const Tab = () => {
         </button>
       </div>
       
-      <iframe
-        src={getChatUrl()}
-        style={{ 
-          width: '100%', 
-          flex: 1, 
-          border: 'none' 
-        }}
-        title="Communicator Chat"
-      />
+<iframe
+  ref={(iframe) => {
+    if (iframe) {
+      iframe.onload = () => {
+        // Add a small delay to ensure the iframe is fully loaded
+        setTimeout(() => {
+          try {
+            if (iframe.contentWindow) {
+              iframe.contentWindow.postMessage({
+                type: 'SET_HEADER',
+                header: 'ngrok-skip-browser-warning',
+                value: 'true'
+              }, '*');
+            }
+          } catch (error) {
+            console.log('Cross-origin iframe communication blocked:', error);
+          }
+        }, 100);
+      };
+    }
+  }}
+  src={getChatUrl()}
+  style={{ 
+    width: '100%', 
+    flex: 1, 
+    border: 'none' 
+  }}
+  title="Communicator Chat"
+/>
     </div>
   );
 };
